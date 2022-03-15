@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 
+# Instant ssh to any of the 3 machines
+
 import os
 from sys import argv
 
-if len(argv) == 1:
+if len(argv) != 2:
     print("Usage: python ssh.py [A|B|C]")
     exit(1)
 
