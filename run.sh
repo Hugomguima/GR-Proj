@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
 
-# File meant to run on your machine to copy files to the machine A and execute them there
+# Run this file and it will do everything
+# In order to run you need to run the following commands on a bash shell:
+    # chmod 0744 run.sh
+    # ./run.sh
 
+chmod 0600 g.rsa
 chmod 0744 *.sh *.py
 ./copyToA.sh
 
