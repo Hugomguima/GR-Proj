@@ -9,6 +9,6 @@ chmod 0600 g.rsa
 chmod 0744 *.sh *.py
 ./copyToA.sh
 
-ssh -i g.rsa theuser@192.168.109.154 -t chmod 0744 /home/theuser/grs/*
-ssh -i g.rsa theuser@192.168.109.154 -t /home/theuser/grs/runA.sh
+ssh -i g.rsa theuser@192.168.109.154 -t chmod 0744 ~/grs/A/runA.sh
+ssh -i g.rsa theuser@192.168.109.154 -t ~/grs/A/runA.sh
 
