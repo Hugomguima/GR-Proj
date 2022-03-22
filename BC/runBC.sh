@@ -3,23 +3,31 @@
 HOME=/home/theuser
 
 
+# Restart clock
+sudo hwclock --hctosys 
+
 # Execute this script on both B and C computers
 
-ip r a default via 192.168.88.100
+sudo ip r d default via 192.168.88.1
+sudo ip r a default via 192.168.88.100
+sleep 1
 
 # Give execute permission to all the files that will be executed
-chmod 0744 $HOME/grs/BC/* $HOME/grs/netubuntu/*
+chmod 0744 $HOME/grs/BC/* $HOME/grs/netubuntu/* $HOME/grs/server/*
 
 # Files to be executed on both computers
 $HOME/grs/BC/installDocker.sh
+sleep 2
 $HOME/grs/netubuntu/buildNetubuntu.sh
+$HOME/grs/server/buildServer.sh
+$HOME/grs/BC/removeDockers.sh
 
 if [ $1 = "B" ]; then
     # Execute only in B
-    $HOME/grs/BC/clientNetwork.sh
-    $HOME/grs/BC/serverNetwork.sh
+    $HOME/grs/BC/clientNetwork.sh 1 5
+    $HOME/grs/BC/serverNetwork.sh 1 3
     $HOME/grs/BC/router.sh
 else
     # Execute only in C
-    $HOME/grs/BC/clientNetwork.sh
+    $HOME/grs/BC/clientNetwork.sh 6 10
 fi
