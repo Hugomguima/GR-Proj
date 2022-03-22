@@ -13,21 +13,23 @@ sudo ip r a default via 192.168.88.100
 sleep 1
 
 # Give execute permission to all the files that will be executed
-chmod 0744 $HOME/grs/BC/* $HOME/grs/netubuntu/* $HOME/grs/server/*
+chmod 0744 $HOME/grs/BC/* $HOME/grs/netubuntu/* $HOME/grs/server/* $HOME/grs/loadBalancer/*
 
 # Files to be executed on both computers
 $HOME/grs/BC/installDocker.sh
 sleep 2
 $HOME/grs/netubuntu/buildNetubuntu.sh
 $HOME/grs/server/buildServer.sh
+$HOME/grs/loadBalancer/buildLoadBalancer.sh
 $HOME/grs/BC/removeDockers.sh
 
 if [ $1 = "B" ]; then
     # Execute only in B
     $HOME/grs/BC/clientNetwork.sh 1 5
-    $HOME/grs/BC/serverNetwork.sh 1 3
+    $HOME/grs/BC/loadBalancer.sh
     $HOME/grs/BC/router.sh
 else
     # Execute only in C
     $HOME/grs/BC/clientNetwork.sh 6 10
+    $HOME/grs/BC/serverNetwork.sh 1 2
 fi
