@@ -22,6 +22,7 @@ $HOME/grs/netubuntu/buildNetubuntu.sh
 $HOME/grs/server/buildServer.sh
 $HOME/grs/loadBalancer/buildLoadBalancer.sh
 $HOME/grs/BC/removeDockers.sh
+$HOME/grs/BC/setupNetworks.sh
 
 if [ $1 = "B" ]; then
     # Execute only in B

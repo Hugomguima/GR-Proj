@@ -1,15 +1,5 @@
 #!/usr/bin/env bash 
 
-sudo docker rm -f server
-sudo docker network rm server_net
-sudo ip l set ens20 up
-
-# Create network for servers
-sudo docker network create -d macvlan \
---subnet=10.0.2.0/24 --gateway=10.0.2.1 -o \
-parent=ens20 server_net
-
-
 for ((i=$1; i<=$2; i++))
 do 
     ip=$((100+$i))
