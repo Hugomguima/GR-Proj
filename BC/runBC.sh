@@ -12,8 +12,12 @@ sudo ip r d default via 192.168.88.1
 sudo ip r a default via 192.168.88.100
 sleep 1
 
+echo "nameserver 193.136.28.10
+options edns0 trust-ad
+search netlab.fe.up.pt" | sudo tee /etc/resolv.conf
+
 # Give execute permission to all the files that will be executed
-chmod 0744 $HOME/grs/BC/* $HOME/grs/netubuntu/* $HOME/grs/server/* $HOME/grs/loadBalancer/*
+chmod 0744 $HOME/grs/BC/* $HOME/grs/netubuntu/* $HOME/grs/server/* $HOME/grs/loadBalancer/* $HOME/grs/nagios/*
 
 # Files to be executed on both computers
 $HOME/grs/BC/installDocker.sh
@@ -27,10 +31,11 @@ $HOME/grs/BC/setupNetworks.sh
 if [ $1 = "B" ]; then
     # Execute only in B
     $HOME/grs/BC/clientNetwork.sh 1 5
+    $HOME/grs/BC/serverNetwork.sh 1 2
     $HOME/grs/BC/loadBalancer.sh
     $HOME/grs/BC/router.sh
+    $HOME/grs/BC/nagios.sh
 else
     # Execute only in C
     $HOME/grs/BC/clientNetwork.sh 6 10
-    $HOME/grs/BC/serverNetwork.sh 1 2
 fi
