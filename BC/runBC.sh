@@ -17,7 +17,7 @@ options edns0 trust-ad
 search netlab.fe.up.pt" | sudo tee /etc/resolv.conf
 
 # Give execute permission to all the files that will be executed
-chmod 0744 $HOME/grs/BC/* $HOME/grs/netubuntu/* $HOME/grs/server/* $HOME/grs/loadBalancer/* $HOME/grs/nagios/*
+chmod 0744 $HOME/grs/BC/* $HOME/grs/netubuntu/* $HOME/grs/server/* $HOME/grs/loadBalancer/* $HOME/grs/nagios/* $HOME/grs/dhcp/*
 
 # Files to be executed on both computers
 $HOME/grs/BC/installDocker.sh
@@ -35,6 +35,7 @@ if [ $1 = "B" ]; then
     $HOME/grs/BC/loadBalancer.sh
     $HOME/grs/BC/router.sh
     $HOME/grs/BC/nagios.sh
+    $HOME/grs/BC/dhcp.sh
 else
     # Execute only in C
     $HOME/grs/BC/clientNetwork.sh 6 10
