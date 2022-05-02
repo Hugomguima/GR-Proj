@@ -1,10 +1,6 @@
 #!/usr/bin/env bash
 
-HOME=/home/theuser
-
-sudo docker rm -f nagios
-
-$HOME/grs/nagios/buildNagios.sh
+./grs/nagios/buildNagios.sh
 
 sudo docker run -d \
     --name nagios -p 0.0.0.0:8080:80 nagios

@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-sudo docker rm -f router
-
-
 sudo docker run -d --net client_net --ip \
 10.0.1.254 --cap-add=NET_ADMIN --name router \
 netubuntu
