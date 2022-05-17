@@ -25,6 +25,7 @@ sleep 2
 $HOME/grs/netubuntu/buildNetubuntu.sh
 $HOME/grs/server/buildServer.sh
 $HOME/grs/loadBalancer/buildLoadBalancer.sh
+$HOME/grs/dns/buildDNS.sh
 $HOME/grs/BC/removeDockers.sh
 $HOME/grs/BC/setupNetworks.sh
 
@@ -34,9 +35,13 @@ if [ $1 = "B" ]; then
     $HOME/grs/BC/serverNetwork.sh 1 2
     $HOME/grs/BC/loadBalancer.sh
     $HOME/grs/BC/router.sh
+    $HOME/grs/BC/edgeRouter.sh
+    $HOME/grs/dns/dns.sh
     $HOME/grs/BC/nagios.sh
     $HOME/grs/BC/dhcp.sh
     $HOME/grs/BC/proxy.sh
+    $HOME/grs/BC/dmzServices.sh
+    $HOME/grs/BC/externalhost.sh
 else
     # Execute only in C
     $HOME/grs/BC/clientNetwork.sh 6 10
