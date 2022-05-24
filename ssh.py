@@ -10,8 +10,8 @@ if len(argv) != 2:
     exit(1)
 
 if argv[1] == "A":
-    os.system("ssh -i g.rsa theuser@192.168.109.154")
+    os.system("ssh -i g.rsa theuser@192.168.109.158")
 elif argv[1] == "B":
-    os.system("ssh -i g.rsa theuser@192.168.109.154 -t ssh -i .ssh/privBC.rsa theuser@192.168.88.101")
+    os.system("ssh -i g.rsa theuser@192.168.109.158 -t ssh -i .ssh/privBC.rsa theuser@192.168.88.101")
 elif argv[1] == "C":
-    os.system("ssh -i g.rsa theuser@192.168.109.154 -t ssh -i .ssh/privBC.rsa theuser@192.168.88.102")
+    os.system("ssh -i g.rsa theuser@192.168.109.158 -t ssh -i .ssh/privBC.rsa theuser@192.168.88.102")

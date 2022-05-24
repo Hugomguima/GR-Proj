@@ -11,6 +11,6 @@ chmod 0744 *.sh *.py
 
 HOME=/home/theuser
 
-ssh -i g.rsa theuser@192.168.109.154 -t chmod 0744 $HOME/grs/A/runA.sh
-ssh -i g.rsa theuser@192.168.109.154 -t $HOME/grs/A/runA.sh
+ssh -i g.rsa theuser@192.168.109.158 -t chmod 0744 $HOME/grs/A/runA.sh
+ssh -i g.rsa theuser@192.168.109.158 -t $HOME/grs/A/runA.sh
 
